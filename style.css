@@ -1,8 +1,8 @@
-body{
- color: white;
-background: black;
+body {
+  color: white;
+  background-color: black; /* Use background-color para definir a cor de fundo */
 }
 
 header {
-   border: solid 2px white;
+   border: solid 2px rgb(42, 122, 228);
 }
