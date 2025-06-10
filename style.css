@@ -78,8 +78,8 @@ header {
 }
 
 .categoria-videos img {
-    width: 250px; /* Set a fixed width for consistency */
-    height: 150px; /* Set a fixed height to maintain aspect ratio, adjust as needed */
+    width: 500px; /* Set a fixed width for consistency */
+    height: 300px; /* Set a fixed height to maintain aspect ratio, adjust as needed */
     object-fit: cover; /* Ensures image covers the area without distortion */
     border-radius: 8px; /* Slightly rounded corners for thumbnails */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
