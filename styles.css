@@ -1,117 +1,148 @@
-/* styles.css */
+/* Import Google Font (already linked in HTML, but good to include for completeness in CSS too if not using @import) */
+/* @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap'); */
 
-/* General body styling for background and font, if not already present */
-body {
-    font-family: 'Chakra Petch', sans-serif;
-    background-color: #1a1a1a; /* Dark background */
-    color: #e0e0e0; /* Light text */
+/* --- Global Styles --- */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-header {
-    background-color: #ff4d4d; /* Red color for the header */
-    padding: 20px;
-    text-align: center;
-    font-size: 2em;
-    color: white;
-    text-transform: uppercase;
+body {
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark gray text */
+    line-height: 1.6;
 }
 
+/* --- Header Styling --- */
+header {
+    background-color: #6a1b9a; /* Deep purple */
+    color: #ffffff; /* White text */
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Chamada Section (Main Hero) --- */
 .chamada {
-    display: flex; /* Use flexbox for the main section */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    display: flex;
+    flex-direction: row; /* Default for larger screens */
+    align-items: center;
+    justify-content: space-around;
     padding: 40px 20px;
-    gap: 30px; /* Space between the text and the video */
-    background-color: #333; /* Slightly lighter dark for this section */
+    background-color: #ffffff;
+    margin: 30px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    gap: 30px; /* Space between text and video */
 }
 
 .chamada-texto {
-    text-align: center; /* Center text within its div */
-    max-width: 500px; /* Limit text width */
+    flex: 1; /* Allow text to take available space */
+    max-width: 500px;
+    text-align: center;
 }
 
-.chamada h1 {
+.chamada-texto h1 {
     font-size: 3em;
-    color: #ff4d4d;
+    color: #4a148c; /* Darker purple */
     margin-bottom: 10px;
 }
 
-.chamada p {
+.chamada-texto p {
     font-size: 1.2em;
-    color: #bbb;
+    color: #666;
+    font-style: italic;
 }
 
+.chamada iframe {
+    border-radius: 8px;
+    max-width: 100%; /* Ensure video scales down */
+    height: auto; /* Maintain aspect ratio */
+    min-width: 300px; /* Minimum width for the main video */
+}
+
+/* --- Categoria Section (Video Grids) --- */
 .categoria {
-    padding: 40px 20px;
-    text-align: center; /* Center the heading */
+    padding: 30px 20px;
+    margin: 30px auto;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .categoria h2 {
-    font-size: 2.5em;
-    color: #ff4d4d;
+    text-align: center;
+    font-size: 2.2em;
+    color: #4a148c; /* Darker purple */
     margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0; /* Light gray line */
 }
 
-/* --- Key changes for side-by-side images start here --- */
 .categoria-videos {
-    display: flex; /* Makes immediate children (the <a> tags) flex items */
-    flex-wrap: wrap; /* Allows items to wrap to the next line if space runs out */
-    justify-content: center; /* Distributes items and centers them if there's extra space */
-    gap: 20px; /* Adds space between the video thumbnails */
-    padding: 0 20px; /* Add some padding on the sides */
+    display: flex;
+    flex-wrap: wrap; /* Allow videos to wrap to the next line */
+    justify-content: center; /* Center videos when they wrap */
+    gap: 20px; /* Space between video frames */
 }
 
-.categoria-videos a {
-    /* Optional: Style for the links themselves, e.g., remove underline */
-    text-decoration: none;
-    color: inherit;
-    display: block; /* Ensures the link takes up the space of its content */
-    border: 3px solid transparent; /* Subtle border for hover effect */
-    transition: border-color 0.3s ease; /* Smooth transition for border */
+.categoria-videos iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
 }
 
-.categoria-videos a:hover {
-    border-color: #ff4d4d; /* Red border on hover */
+.categoria-videos iframe:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
-.categoria-videos img {
-    width: 500px; /* Set a fixed width for consistency */
-    height: 300px; /* Set a fixed height to maintain aspect ratio, adjust as needed */
-    object-fit: cover; /* Ensures image covers the area without distortion */
-    border-radius: 8px; /* Slightly rounded corners for thumbnails */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
-    display: block; /* Remove extra space below image */
-}
-
-/* --- Media query for responsiveness (optional but recommended) --- */
-@media (max-width: 768px) {
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
     .chamada {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+        flex-direction: column; /* Stack text and video vertically */
+        text-align: center;
+        padding: 30px 15px;
     }
 
-    .chamada h1 {
-        font-size: 2.2em;
+    .chamada-texto {
+        margin-bottom: 20px;
+        max-width: 100%; /* Allow text to use full width */
     }
 
-    .chamada p {
-        font-size: 1em;
+    .chamada-texto h1 {
+        font-size: 2.5em;
+    }
+
+    .chamada-texto p {
+        font-size: 1.1em;
+    }
+
+    header {
+        font-size: 2em;
+        padding: 15px 0;
     }
 
     .categoria h2 {
-        font-size: 2em;
-    }
-
-    .categoria-videos img {
-        width: 100%; /* Make images take full width of container on small screens */
-        height: auto; /* Adjust height automatically */
-        max-width: 300px; /* Max width for images on small screens */
-    }
-
-    iframe {
-        width: 100%; /* Make video responsive */
-        height: 200px; /* Adjust height for smaller screens */
+        font-size: 1.8em;
     }
 }
+
+@media (max-width: 600px) {
+    header {
+        font-size: 1.8em;
+    }
+
+    .chamada {
+        padding: 20px 10px;
+        margin: 20px auto;
+    }
+
+    .chamada-texto h1 {
+        font-size: 2em
