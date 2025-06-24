@@ -145,4 +145,33 @@ header {
     }
 
     .chamada-texto h1 {
-        font-size: 2em
+        font-size: 2em;
+    }
+
+    .chamada iframe {
+        width: 100%; /* Make main video full width on small screens */
+        height: 250px; /* Adjust height for small screens */
+    }
+
+    .categoria {
+        padding: 20px 10px;
+        margin: 20px auto;
+    }
+
+    .categoria h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .categoria-videos iframe {
+        width: 100%; /* Make small videos full width */
+        height: 180px; /* Adjust height for small screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .chamada iframe,
+    .categoria-videos iframe {
+        height: 150px; /* Even smaller height for tiny screens */
+    }
+}
